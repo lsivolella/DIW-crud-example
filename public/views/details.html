@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="/assets/css/details.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
+    <title>Detalhes</title>
+</head>
+
+<body>
+    <header>
+        <a href="/index.html">
+            <img src="/assets/img/logo.png" alt="logo">
+        </a>
+    </header>
+
+    <main>
+        <section id="mainInfo-container">
+            <h1 class="section-title">Informações Gerais</h1>
+            <div class="d-flex flex-wrap align-items-start gap-3 m-3 row" id="bookInfo-container">
+            </div>
+            <div class="mt-4 d-flex align-items-center justify-content-center">
+                <a id="edit-btn" href="#" class="btn btn-warning me-2">Editar</a>
+                <button class="btn btn-danger" id="exlude-btn">Excluir</button>
+            </div>
+        </section>
+
+        <section id="pizzaGraph-container">
+            <h1 class="section-title">Capítulos</h1>
+            <div id="graph-div">
+                <canvas id="pizzaGraph"></canvas>
+            </div>
+        </section>
+
+        <section id="secondaryInfo-container">
+            <h1 class="section-title">Ilustrações</h1>
+            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators"></div>
+                <div class="carousel-inner"></div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </section>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+        <script type="module" src="../assets/js/details.js"></script>
+</body>
+
+</html>

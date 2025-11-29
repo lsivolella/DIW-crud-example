@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="year-inputnymous">
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="/assets/css/book-form.css">
+    <title>Cadastro de Livros</title>
+</head>
+
+<body>
+    <header>
+        <a href="/index.html">
+            <img src="/assets/img/logo.png" alt="logo">
+        </a>
+    </header>
+
+    <main>
+        <section id="register-container">
+            <h1 class="section-title">Cadastro de Livro</h1>
+
+            <form id="book-form" class="row g-3">
+                <input type="hidden" id="id-input" />
+
+                <div class="col-md-6">
+                    <label for="title-input" class="form-label">Título</label>
+                    <input type="text" class="form-control" id="title-input" required>
+                </div>
+
+                <div class="col-md-6">
+                    <label for="subtitle-input" class="form-label">Subtítulo</label>
+                    <input type="text" class="form-control" id="subtitle-input">
+                </div>
+
+                <div class="col-md-6">
+                    <label for="author-input" class="form-label">Autor</label>
+                    <input type="text" class="form-control" id="author-input" required>
+                </div>
+
+                <div class="col-md-3">
+                    <label for="year-input" class="form-label">Ano</label>
+                    <input type="number" class="form-control" id="year-input" required>
+                </div>
+
+                <div class="col-md-3">
+                    <label for="pages-input" class="form-label">Páginas</label>
+                    <input type="number" class="form-control" id="pages-input" required>
+                </div>
+
+                <div class="col-12">
+                    <label for="coverImage-input" class="form-label">URL da Imagem</label>
+                    <input type="text" class="form-control" id="coverImage-input">
+                </div>
+
+                <div class="col-md-4">
+                    <label for="coverColor-input" class="form-label">Cor da Capa</label>
+                    <input type="color" class="form-control form-control-color" id="coverColor-input" value="#000000">
+                </div>
+
+                <div class="col-12">
+                    <label for="description-textarea" class="form-label">Descrição</label>
+                    <textarea class="form-control" id="description-textarea" rows="4"></textarea>
+                </div>
+
+                <div class="col-12 mt-4">
+                    <label class="form-label">POVs (Personagens e Capítulos)</label>
+
+                    <div id="pov-list"></div>
+
+                    <button type="button" id="addPov-btn" class="btn btn-outline-primary mt-2">
+                        + Adicionar POV
+                    </button>
+                </div>
+
+                <div class="col-12 mt-3">
+                    <button type="submit" class="btn btn-primary">Salvar</button>
+                    <a href="/index.html" class="btn btn-secondary">Cancelar</a>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <!-- <script src="/assets/js/main.js"></script> -->
+    <script type="module" src="/assets/js/books/book-form.js"></script>
+</body>
+
+</html>

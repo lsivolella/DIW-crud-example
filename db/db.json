@@ -1,0 +1,382 @@
+{
+  "books": [
+    {
+      "id": 1,
+      "title": "A Game of Thrones",
+      "subtitle": "A Song of Ice and Fire — Book 1",
+      "author": "George R. R. Martin",
+      "year": 1996,
+      "coverImage": "/assets/img/asoiaf_1.jpg",
+      "pages": 694,
+      "description": "The story begins in the Seven Kingdoms of Westeros, a land where summers last decades and winters can last a lifetime.Noble families vie for control of the Iron Throne as political intrigue, betrayal, and war tear the realm apart.Meanwhile, far to the north, an ancient threat awakens beyond the Wall.",
+      "pov": [
+        {
+          "character": "Eddard Stark",
+          "chapters": 15
+        },
+        {
+          "character": "Catelyn Stark",
+          "chapters": 11
+        },
+        {
+          "character": "Jon Snow",
+          "chapters": 9
+        },
+        {
+          "character": "Bran Stark",
+          "chapters": 7
+        },
+        {
+          "character": "Daenerys Targaryen",
+          "chapters": 10
+        },
+        {
+          "character": "Arya Stark",
+          "chapters": 5
+        },
+        {
+          "character": "Tyrion Lannister",
+          "chapters": 9
+        },
+        {
+          "character": "Sansa Stark",
+          "chapters": 6
+        }
+      ],
+      "ilustrations": [
+        {
+          "id": 1,
+          "url": "/assets/img/asoiaf_1-hound-sansa.jpg",
+          "description": "The Hound and Sansa Stark"
+        },
+        {
+          "id": 2,
+          "url": "/assets/img/asoiaf_1-kings-landing.jpg",
+          "description": "The City of King's Landing"
+        },
+        {
+          "id": 3,
+          "url": "/assets/img/asoiaf_1-ned-arya.jpg",
+          "description": "Ned and Arya Stark"
+        },
+        {
+          "id": 4,
+          "url": "/assets/img/asoiaf_1-ned-jory.jpg",
+          "description": "Ned and Jory"
+        },
+        {
+          "id": 5,
+          "url": "/assets/img/asoiaf_1-ned.jpg",
+          "description": "Ned Stark"
+        },
+        {
+          "id": 6,
+          "url": "/assets/img/asoiaf_1-throne.jpg",
+          "description": "The Iron Throne"
+        }
+      ],
+      "coverColor": "#0f2847"
+    },
+    {
+      "id": 2,
+      "title": "A Clash of Kings",
+      "subtitle": "A Song of Ice and Fire — Book 2",
+      "author": "George R. R. Martin",
+      "year": 1998,
+      "coverImage": "/assets/img/asoiaf_2.jpg",
+      "pages": 768,
+      "description": "The Seven Kingdoms erupt into civil war after the death of King Robert Baratheon. Multiple kings rise to claim the Iron Throne, each convinced of their right to rule. Amid the chaos, alliances shift, betrayals multiply, and strange omens hint at darker forces gathering beyond human control.",
+      "pov": [
+        {
+          "character": "Tyrion Lannister",
+          "chapters": 15
+        },
+        {
+          "character": "Jon Snow",
+          "chapters": 8
+        },
+        {
+          "character": "Daenerys Targaryen",
+          "chapters": 5
+        },
+        {
+          "character": "Arya Stark",
+          "chapters": 10
+        },
+        {
+          "character": "Sansa Stark",
+          "chapters": 8
+        },
+        {
+          "character": "Bran Stark",
+          "chapters": 7
+        },
+        {
+          "character": "Davos Seaworth",
+          "chapters": 3
+        },
+        {
+          "character": "Theon Greyjoy",
+          "chapters": 6
+        },
+        {
+          "character": "Catelyn Stark",
+          "chapters": 7
+        }
+      ],
+      "ilustrations": [
+        {
+          "id": 1,
+          "url": "/assets/img/asoiaf_2-arya-prisoners.jpg",
+          "description": "Arya and the Prisoners"
+        },
+        {
+          "id": 2,
+          "url": "/assets/img/asoiaf_2-battle-kings-landing.jpg",
+          "description": "The Battle of King's Landing"
+        },
+        {
+          "id": 3,
+          "url": "/assets/img/asoiaf_2-dragonstone.jpg",
+          "description": "Dragonstone"
+        },
+        {
+          "id": 4,
+          "url": "/assets/img/asoiaf_2-jon-ygritte.jpg",
+          "description": "Jon and Ygritte"
+        },
+        {
+          "id": 5,
+          "url": "/assets/img/asoiaf_2-meera-jojen.jpg",
+          "description": "meera and Jojen meet Summer"
+        },
+        {
+          "id": 6,
+          "url": "/assets/img/asoiaf_2-renly-brienne.jpg",
+          "description": "Renly dies on Brienne's arms"
+        }
+      ],
+      "coverColor": "#c9a341"
+    },
+    {
+      "id": 3,
+      "title": "A Storm of Swords",
+      "subtitle": "A Song of Ice and Fire — Book 3",
+      "author": "George R. R. Martin",
+      "year": 2000,
+      "coverImage": "/assets/img/asoiaf_3.jpg",
+      "pages": 973,
+      "description": "The war for the Iron Throne reaches its bloody peak. Unexpected betrayals reshape the political landscape — none more shocking than the infamous Red Wedding. Beyond the Wall, the Night’s Watch faces the growing power of the wildlings and the mysterious White Walkers.",
+      "pov": [
+        {
+          "character": "Jaime Lannister",
+          "chapters": 7
+        },
+        {
+          "character": "Jon Snow",
+          "chapters": 13
+        },
+        {
+          "character": "Tyrion Lannister",
+          "chapters": 13
+        },
+        {
+          "character": "Arya Stark",
+          "chapters": 13
+        },
+        {
+          "character": "Sansa Stark",
+          "chapters": 7
+        },
+        {
+          "character": "Samwell Tarly",
+          "chapters": 5
+        },
+        {
+          "character": "Bran Stark",
+          "chapters": 4
+        },
+        {
+          "character": "Davos Seaworth",
+          "chapters": 4
+        },
+        {
+          "character": "Catelyn Stark",
+          "chapters": 7
+        },
+        {
+          "character": "Daenerys Targaryen",
+          "chapters": 6
+        }
+      ],
+      "ilustrations": [
+        {
+          "id": 1,
+          "url": "/assets/img/asoiaf_3-brienne.jpg",
+          "description": "Brinne of Tarth jumps into the river"
+        },
+        {
+          "id": 2,
+          "url": "/assets/img/asoiaf_3-hoster-tully-funeral.jpg",
+          "description": "Hoster Tully's funeral"
+        },
+        {
+          "id": 3,
+          "url": "/assets/img/asoiaf_3-jon-snow.jpg",
+          "description": "Jon Snow at the Castle Black battle"
+        },
+        {
+          "id": 4,
+          "url": "/assets/img/asoiaf_3-jon-ygritte.jpg",
+          "description": "Jon and Ygritte in the caverns"
+        }
+      ],
+      "coverColor": "#125c32"
+    },
+    {
+      "id": 4,
+      "title": "A Feast for Crows",
+      "subtitle": "A Song of Ice and Fire — Book 4",
+      "author": "George R. R. Martin",
+      "year": 2005,
+      "coverImage": "/assets/img/asoiaf_4.jpg",
+      "pages": 753,
+      "description": "The wars have taken their toll, leaving the realm fractured and exhausted. As the great houses lick their wounds, new power struggles emerge. In the capital, intrigue and manipulation rule, while in the Riverlands and Dorne, old grudges spark new conflicts.",
+      "pov": [
+        {
+          "character": "Cersei Lannister",
+          "chapters": 10
+        },
+        {
+          "character": "Brienne of Tarth",
+          "chapters": 7
+        },
+        {
+          "character": "Arya Stark",
+          "chapters": 3
+        },
+        {
+          "character": "Sansa Stark",
+          "chapters": 3
+        },
+        {
+          "character": "Samwell Tarly",
+          "chapters": 5
+        },
+        {
+          "character": "Jaime Lannister",
+          "chapters": 7
+        },
+        {
+          "character": "Aeron Greyjoy",
+          "chapters": 2
+        },
+        {
+          "character": "Asha Greyjoy",
+          "chapters": 1
+        },
+        {
+          "character": "Victarion Greyjoy",
+          "chapters": 2
+        },
+        {
+          "character": "Areo Hotah",
+          "chapters": 1
+        },
+        {
+          "character": "Arianne Martell",
+          "chapters": 2
+        }
+      ],
+      "ilustrations": [
+        {
+          "id": 1,
+          "url": "/assets/img/asoiaf_4-beyond-wall.jpg",
+          "description": "The freefolk fleeing south"
+        },
+        {
+          "id": 2,
+          "url": "/assets/img/asoiaf_4-pyke.jpg",
+          "description": "The Pyke Castle"
+        },
+        {
+          "id": 3,
+          "url": "/assets/img/asoiaf_4-twins.jpg",
+          "description": "The Twins Castle"
+        },
+        {
+          "id": 4,
+          "url": "/assets/img/asoiaf_4-victarion.jpg",
+          "description": "Victarion Greyjoy leaps onto a ship"
+        }
+      ],
+      "coverColor": "#7b0d0d"
+    },
+    {
+      "id": 5,
+      "title": "A Dance with Dragons",
+      "subtitle": "A Song of Ice and Fire — Book 5",
+      "author": "George R. R. Martin",
+      "year": 2011,
+      "coverImage": "/assets/img/asoiaf_5.jpg",
+      "pages": 1016,
+      "description": "As Westeros struggles to recover from war, new leaders rise in the chaos. Jon Snow commands the Night’s Watch and faces impossible choices, Tyrion Lannister flees across the Narrow Sea, and Daenerys Targaryen fights to maintain control of her fragile empire — even as dragons grow stronger and winter draws near.",
+      "pov": [
+        {
+          "character": "Tyrion Lannister",
+          "chapters": 12
+        },
+        {
+          "character": "Jon Snow",
+          "chapters": 13
+        },
+        {
+          "character": "Daenerys Targaryen",
+          "chapters": 10
+        },
+        {
+          "character": "Bran Stark",
+          "chapters": 3
+        },
+        {
+          "character": "Victarion Greyjoy",
+          "chapters": 2
+        },
+        {
+          "character": "Theon Greyjoy",
+          "chapters": 7
+        },
+        {
+          "character": "Davos Seaworth",
+          "chapters": 4
+        },
+        {
+          "character": "Quentyn Martell",
+          "chapters": 3
+        },
+        {
+          "character": "Barristan Selmy",
+          "chapters": 4
+        }
+      ],
+      "ilustrations": [
+        {
+          "id": 1,
+          "url": "/assets/img/asoiaf_5-coldhands.jpg",
+          "description": "Coldhand mounted on his elk"
+        },
+        {
+          "id": 2,
+          "url": "/assets/img/asoiaf_5-daenarys-dragon.jpg",
+          "description": "Daenarys and her dragon Drogon"
+        },
+        {
+          "id": 3,
+          "url": "/assets/img/asoiaf_5-jon.jpg",
+          "description": "The First Commander, Jon Snow"
+        }
+      ],
+      "coverColor": "#8e8e8e"
+    }
+  ]
+}

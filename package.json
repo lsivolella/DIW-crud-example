@@ -4,7 +4,8 @@
   "description": "Aplicação web que implementa operações completas de CRUD utilizando JSON Server como API REST simulada. Desenvolvido como trabalho prático da disciplina Desenvolvimento de Interfaces Web do curso de Engenharia de Software – PUC Minas.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "json-server --watch ./db/db.json"
   },
   "keywords": [],
   "author": "",

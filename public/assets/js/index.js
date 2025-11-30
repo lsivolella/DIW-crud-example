@@ -1,4 +1,5 @@
 import { books, getBooks, deleteBook } from "./main.js";
+import { isFavorite, toggleFavorite } from "./favorites.js";
 
 const detailsBaseUrl = "/views/details.html?id=";
 
@@ -71,17 +72,27 @@ function renderCards() {
         col.className = "col";
 
         col.innerHTML = `
-        <div class="card h-100">
+        <div class="card h-100 book-card" data-id="${book.id}">
             <a href="${detailsUrl}">
                 <img src="${book.coverImage}" class="card-img-top" alt="${book.title}">
+
                 <div class="card-body">
                     <h5 class="card-title">${book.title}</h5>
                     <p class="card-text">${book.author}</p>
                     <p class="card-text">Ano: ${book.year}</p>
                     <p class="card-text">Páginas: ${book.pages}</p>
-                    <div class="mt-4 d-flex align-items-center justify-content-center">
-                        <a id="btn-editar" href="/views/book-form.html?id=${book.id}" class="btn btn-warning me-2">Editar</a>
-                        <button class="btn btn-danger" data-id="${book.id}">Excluir</button>
+
+                    <div class="d-flex justify-content-between align-items-center mt-3">
+
+                        <button class="btn btn-link p-0 favorite-btn" data-favid="${book.id}">
+                            <i class="heart-icon bi ${isFavorite(Number(book.id)) ? 'bi-heart-fill text-danger' : 'bi-heart'} fs-2"></i>
+                        </button>
+
+                        <div>
+                            <a href="/views/book-form.html?id=${book.id}" class="btn btn-warning me-2">Editar</a>
+                            <button class="btn btn-danger delete-btn" data-id="${book.id}">Excluir</button>
+                        </div>
+
                     </div>
                 </div>
             </a>
@@ -138,8 +149,19 @@ function renderBarsGraph() {
 }
 
 cardsGrid.addEventListener("click", async (event) => {
-    const bookId = event.target.dataset.id;
+    const card = event.target.closest(".book-card");
+    const bookId = card ? card.dataset.id : null;
+
     if (!bookId) return;
+
+    const favButton = event.target.closest(".favorite-btn");
+    if (favButton) {
+        event.preventDefault();
+        const id = Number(favButton.dataset.favid);
+        toggleFavorite(id);
+        renderCards();
+        return;
+    }
 
     if (event.target.matches(".btn-warning")) {
         event.preventDefault();
@@ -149,7 +171,7 @@ cardsGrid.addEventListener("click", async (event) => {
     if (event.target.matches(".btn-danger")) {
         event.preventDefault();
         if (confirm("Deseja realmente excluir este livro?")) {
-            await fetch(`http://localhost:3000/livros/${bookId}`, { method: "DELETE" });
+            await fetch(`http://localhost:3000/books/${bookId}`, { method: "DELETE" });
             alert("Livro excluído com sucesso!");
             await loadDataAndRenderPage();
         }

@@ -20,12 +20,16 @@ const povList = document.querySelector("#pov-list");
 
 const addPovBtn = document.querySelector("#addPov-btn");
 
+let originalCoverImage = "";
+
 function fillForm(book) {
     titleInput.value = book.title;
     subtitleInput.value = book.subtitle;
     authorInput.value = book.author;
     yearInput.value = book.year;
     pagesInput.value = book.pages;
+
+    originalCoverImage = book.coverImage || "";
 
     if (book.coverImage) {
         coverImagePreview.src = book.coverImage;
@@ -104,7 +108,7 @@ bookForm.addEventListener("submit", async (event) => {
         author: authorInput.value.trim(),
         year: Number(yearInput.value),
         pages: Number(pagesInput.value),
-        coverImage: coverImageFile.dataset.base64 || "",
+        coverImage: coverImageFile.dataset.base64 || originalCoverImage,
         coverColor: coverColorInput.value,
         description: descriptionTextarea.value.trim(),
         pov: povArray,

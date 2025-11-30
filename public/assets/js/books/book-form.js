@@ -12,7 +12,8 @@ const subtitleInput = document.querySelector("#subtitle-input");
 const authorInput = document.querySelector("#author-input");
 const yearInput = document.querySelector("#year-input");
 const pagesInput = document.querySelector("#pages-input");
-const coverImageInput = document.querySelector("#coverImage-input");
+const coverImageFile = document.querySelector("#coverImage-file");
+const coverImagePreview = document.querySelector("#coverImage-preview");
 const coverColorInput = document.querySelector("#coverColor-input");
 const descriptionTextarea = document.querySelector("#description-textarea");
 const povList = document.querySelector("#pov-list");
@@ -25,7 +26,12 @@ function fillForm(book) {
     authorInput.value = book.author;
     yearInput.value = book.year;
     pagesInput.value = book.pages;
-    coverImageInput.value = book.coverImage;
+
+    if (book.coverImage) {
+        coverImagePreview.src = book.coverImage;
+        coverImagePreview.classList.remove("d-none");
+    }
+
     coverColorInput.value = book.coverColor || "#000000";
     descriptionTextarea.value = book.description;
 
@@ -59,9 +65,28 @@ function createPovInput(character = "", chapters = "") {
     povList.appendChild(div);
 }
 
-addPovBtn.addEventListener("click", () => {
-    createPovInput();
-});
+if (coverImageFile) {
+    coverImageFile.addEventListener("change", () => {
+        const file = coverImageFile.files[0];
+        if (!file) return;
+
+        const reader = new FileReader();
+        reader.onload = () => {
+            coverImagePreview.src = reader.result;
+            coverImagePreview.classList.remove("d-none");
+
+            coverImageFile.dataset.base64 = reader.result;
+        };
+        reader.readAsDataURL(file);
+    });
+}
+
+if (addPovBtn) {
+    addPovBtn.addEventListener("click", () => {
+        createPovInput();
+    });
+
+}
 
 bookForm.addEventListener("submit", async (event) => {
     event.preventDefault();
@@ -79,7 +104,7 @@ bookForm.addEventListener("submit", async (event) => {
         author: authorInput.value.trim(),
         year: Number(yearInput.value),
         pages: Number(pagesInput.value),
-        coverImage: coverImageInput.value.trim(),
+        coverImage: coverImageFile.dataset.base64 || "",
         coverColor: coverColorInput.value,
         description: descriptionTextarea.value.trim(),
         pov: povArray,

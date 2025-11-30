@@ -155,7 +155,7 @@ if (cardsGrid) {
         const favButton = event.target.closest(".favorite-btn");
         if (favButton) {
             event.preventDefault();
-            const id = Number(favButton.dataset.favid);
+            const id = favButton.dataset.favid;
             toggleFavorite(id);
             renderCards();
             return;

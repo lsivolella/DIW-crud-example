@@ -8,7 +8,7 @@ function renderCards() {
     grid.innerHTML = "";
 
     const favoriteBooks = books.filter(book =>
-        favoriteIds.includes(Number(book.id))
+        favoriteIds.includes(String(book.id))
     );
 
     if (favoriteBooks.length === 0) {
@@ -28,7 +28,7 @@ function setupFavToggle(grid) {
         const favBtn = e.target.closest(".favorite-btn");
         if (favBtn) {
             e.preventDefault();
-            const id = Number(favBtn.dataset.favid);
+            const id = favBtn.dataset.favid;
             toggleFavorite(id);
 
             location.reload();

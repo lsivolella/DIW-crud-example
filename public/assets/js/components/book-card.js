@@ -27,7 +27,7 @@ export function createBookCard(book) {
             <div class="d-flex justify-content-between align-items-center mt-3">
 
                 <button class="btn btn-link p-0 favorite-btn" data-favid="${book.id}">
-                    <i class="heart-icon bi ${isFavorite(Number(book.id)) ? "bi-heart-fill text-danger" : "bi-heart"} fs-2"></i>
+                    <i class="heart-icon bi ${isFavorite(String(book.id)) ? "bi-heart-fill text-danger" : "bi-heart"} fs-2"></i>
                 </button>
 
                 <div>

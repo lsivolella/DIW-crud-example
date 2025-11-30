@@ -26,7 +26,7 @@ function fillForm(book) {
     yearInput.value = book.year;
     pagesInput.value = book.pages;
     coverImageInput.value = book.coverImage;
-    coverColorInput.value = book.coverColor  || "#000000";
+    coverColorInput.value = book.coverColor || "#000000";
     descriptionTextarea.value = book.description;
 
     if (povList && book.pov && Array.isArray(book.pov)) {
@@ -43,16 +43,16 @@ function createPovInput(character = "", chapters = "") {
 
     div.innerHTML = `
         <div class="col-md-6">
-            <input type="text" class="form-control" id="povCharacter-input" placeholder="Personagem" value="${character}">
+            <input type="text" class="form-control povCharacter-input" placeholder="Personagem" value="${character}">
         </div>
         <div class="col-md-3">
-            <input type="number" class="form-control" id="povChapters-input" placeholder="Capítulos" min="0" value="${chapters}">
+            <input type="number" class="form-control povChapters-input" placeholder="Capítulos" min="0" value="${chapters}">
         </div>
         <div class="col-md-3">
-            <button type="button" class="btn btn-danger w-100" id="removePov-btn">Remover</button>
+            <button type="button" class="btn btn-danger w-100 removePov-btn">Remover</button>
         </div>
       `;
-    div.querySelector("#removePov-btn").addEventListener("click", () => {
+    div.querySelector(".removePov-btn").addEventListener("click", () => {
         div.remove();
     });
 
@@ -68,10 +68,29 @@ bookForm.addEventListener("submit", async (event) => {
 
     const povInputs = povList.querySelectorAll(".row");
     const povArray = Array.from(povInputs).map(row => {
-        const character = row.querySelector(".characterPov-input").value;
-        const chapters = parseInt(row.querySelector(".pov-capitulos").value) || 0;
+        const character = row.querySelector(".povCharacter-input").value;
+        const chapters = parseInt(row.querySelector(".povChapters-input").value) || 0;
         return { character, chapters };
     });
+
+    const bookData = {
+        title: titleInput.value.trim(),
+        subtitle: subtitleInput.value.trim(),
+        author: authorInput.value.trim(),
+        year: Number(yearInput.value),
+        pages: Number(pagesInput.value),
+        coverImage: coverImageInput.value.trim(),
+        coverColor: coverColorInput.value,
+        description: descriptionTextarea.value.trim(),
+        pov: povArray,
+        ilustrations: []
+    };
+
+    await saveBook(id, bookData);
+
+    alert(isEdit ? "Livro atualizado com sucesso!" : "Livro criado com sucesso!");
+
+    window.location.href = "/index.html";
 });
 
 window.addEventListener("DOMContentLoaded", async () => {

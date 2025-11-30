@@ -7,8 +7,11 @@ const detailsBaseUrl = "/views/details.html?id=";
 const carouselSlide = document.querySelector(".carousel");
 const carouselIndicators = document.querySelector(".carousel-indicators");
 const carouselInner = document.querySelector(".carousel-inner");
+const searchInput = document.getElementById("searchInput");
 const cardsGrid = document.querySelector(".livros-grid");
 const barsGraph = document.getElementById('bars-graph');
+
+let filteredBooks = [];
 
 async function loadDataAndRenderPage() {
     await getBooks();
@@ -67,7 +70,9 @@ function renderCards() {
 
     cardsGrid.innerHTML = '';
 
-    books.forEach(book => {
+    const booksToRender = filteredBooks.length > 0 ? filteredBooks : books;
+
+    booksToRender.forEach(book => {
         const card = createBookCard(book);
         cardsGrid.appendChild(card);
     });
@@ -120,21 +125,43 @@ function renderBarsGraph() {
     });
 }
 
-cardsGrid.addEventListener("click", async (event) => {
-    const card = event.target.closest(".book-card");
-    const bookId = card ? card.dataset.id : null;
+if (searchInput) {
+    searchInput.addEventListener("input", (event) => {
+        const query = event.target.value.trim().toLowerCase();
 
-    if (!bookId) return;
+        if (query === "") {
+            filteredBooks = [];
+        } else {
+            filteredBooks = books.filter(book => {
+                return (
+                    book.title.toLowerCase().includes(query) ||
+                    (book.subtitle && book.subtitle.toLowerCase().includes(query)) ||
+                    (book.description && book.description.toLowerCase().includes(query))
+                );
+            });
+        }
 
-    const favButton = event.target.closest(".favorite-btn");
-    if (favButton) {
-        event.preventDefault();
-        const id = Number(favButton.dataset.favid);
-        toggleFavorite(id);
         renderCards();
-        return;
-    }
-});
+    });
+}
+
+if (cardsGrid) {
+    cardsGrid.addEventListener("click", async (event) => {
+        const card = event.target.closest(".book-card");
+        const bookId = card ? card.dataset.id : null;
+
+        if (!bookId) return;
+
+        const favButton = event.target.closest(".favorite-btn");
+        if (favButton) {
+            event.preventDefault();
+            const id = Number(favButton.dataset.favid);
+            toggleFavorite(id);
+            renderCards();
+            return;
+        }
+    });
+}
 
 document.addEventListener("DOMContentLoaded", async () => {
     await loadDataAndRenderPage();

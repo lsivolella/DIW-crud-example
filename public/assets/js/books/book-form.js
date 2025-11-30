@@ -1,4 +1,3 @@
-// import { create } from "json-server";
 import { getBook, saveBook } from "../main.js";
 
 const params = new URLSearchParams(window.location.search);

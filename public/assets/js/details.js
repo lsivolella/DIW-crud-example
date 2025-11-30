@@ -1,5 +1,6 @@
 import { getBook } from "./main.js";
-import { isFavorite, toggleFavorite } from "./favorites.js";
+import { isFavorite, toggleFavorite } from "../../services/favorites-service.js";
+import { isAdmin } from "../../../services/auth-service.js";
 
 const bookInfoContainer = document.querySelector("#bookInfo-container");
 const carouselSlide = document.querySelector(".carousel");
@@ -147,10 +148,21 @@ function setupFavoriteButton(book) {
         favoriteBtn.addEventListener("click", () => {
             const id = Number(book.id);
             toggleFavorite(id);
-            
+
             const icon = favoriteBtn.querySelector("i");
             icon.className = `heart-icon bi ${isFavorite(id) ? "bi-heart-fill text-danger" : "bi-heart"} fs-2`;
         });
+    }
+}
+
+function setupCRUDButtons(book) {
+    if (isAdmin()) {
+        setupEditButton(book);
+        setupExcludeBtn(book);
+    }
+    else {
+        editBtn.style.display = "none";
+        excludeBtn.style.display = "none";
     }
 }
 
@@ -162,7 +174,7 @@ function setupEditButton(book) {
 
 function setupExcludeBtn(book) {
     if (excludeBtn) {
-        btnExcluir.addEventListener("click", async () => {
+        excludeBtn.addEventListener("click", async () => {
             if (confirm("Deseja realmente excluir este livro?")) {
                 await fetch(`http://localhost:3001/books/${book.id}`, { method: "DELETE" });
                 alert("Livro excluído com sucesso!");
@@ -182,6 +194,5 @@ document.addEventListener("DOMContentLoaded", async () => {
     if (!book) return;
 
     setupFavoriteButton(book);
-    setupEditButton(book);
-    setupExcludeBtn(book);
+    setupCRUDButtons(book);
 });

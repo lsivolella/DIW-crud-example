@@ -1,38 +1,42 @@
-function getCurrentUser() {
-    let user = null;
-    try {
-        user = JSON.parse(sessionStorage.getItem("usuarioCorrente"));
-    } catch {}
-    return user;
-}
+import { books, getBooks } from "./main.js";
+import { loadFavorites, toggleFavorite } from "../../services/favorites-service.js";
+import { createBookCard } from "./components/book-card.js";
 
-export function loadFavorites() {
-    const user = getCurrentUser();
-    if (!user) return [];
+function renderCards() {
+    const favoriteIds = loadFavorites();
+    const grid = document.querySelector(".livros-grid");
+    grid.innerHTML = "";
 
-    const data = localStorage.getItem(`favorites_${user.login}`);
-    return data ? JSON.parse(data) : [];
-}
+    const favoriteBooks = books.filter(book =>
+        favoriteIds.includes(Number(book.id))
+    );
 
-function saveFavorites(favs) {
-    const user = getCurrentUser();
-    if (!user) return;
-
-    localStorage.setItem(`favorites_${user.login}`, JSON.stringify(favs));
-}
-
-export function toggleFavorite(bookId) {
-    let favs = loadFavorites();
-    console.log("Current favorites before toggle:", favs);
-    if (favs.includes(bookId)) {
-        favs = favs.filter(id => id !== bookId);
-    } else {
-        favs.push(bookId);
+    if (favoriteBooks.length === 0) {
+        grid.innerHTML = `<p class="text-center mt-4">Você ainda não tem livros favoritos.</p>`;
+        return;
     }
 
-    saveFavorites(favs);
+    favoriteBooks.forEach(book => {
+        grid.appendChild(createBookCard(book));
+    });
+
+    setupFavToggle(grid);
 }
 
-export function isFavorite(bookId) {
-    return loadFavorites().includes(bookId);
+function setupFavToggle(grid) {
+    grid.addEventListener("click", e => {
+        const favBtn = e.target.closest(".favorite-btn");
+        if (favBtn) {
+            e.preventDefault();
+            const id = Number(favBtn.dataset.favid);
+            toggleFavorite(id);
+
+            location.reload();
+        }
+    });
 }
+
+document.addEventListener("DOMContentLoaded", async () => {
+    await getBooks();
+    renderCards();
+});

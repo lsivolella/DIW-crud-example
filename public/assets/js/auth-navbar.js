@@ -1,24 +1,19 @@
-if (!window.usuarioCorrente) {
-    try {
-        window.usuarioCorrente = JSON.parse(sessionStorage.getItem("usuarioCorrente"));
-    } catch (e) {
-        window.usuarioCorrente = null;
-    }
-}
+import { isAdmin, isLoggedIn, getCurrentUser } from "../../services/auth-service.js";
 
 const loginBtn = document.querySelector("#loginBtn");
 const logoutBtn = document.querySelector("#logoutBtn");
 const adminLink = document.querySelector("#adminLink");
 
 function updateNavbar() {
-    const isLogged = usuarioCorrente && usuarioCorrente.login;
+    const userIsLogged = isLoggedIn();
+    const userIsAdmin = isAdmin();
 
-    if (isLogged) {
+    if (userIsLogged) {
         loginBtn.classList.add("d-none");
         logoutBtn.classList.remove("d-none");
 
         if (adminLink) {
-            if (usuarioCorrente.login === "admin") {
+            if (userIsAdmin) {
                 adminLink.classList.remove("d-none");
             } else {
                 adminLink.classList.add("d-none");
@@ -35,7 +30,6 @@ function updateNavbar() {
 if (logoutBtn) {
     logoutBtn.addEventListener("click", () => {
         logoutUser();
-        window.location.reload();
     });
 }
 
